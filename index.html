@@ -10,16 +10,16 @@
            THEME: Cyber-Bio (Deep Slate & Emerald/Cyan)
            =========================================== */
         :root {
-            --bg-base: #050914;
-            --surface: #0f172a;
-            --surface-elevated: #1e293b;
-            --border: #334155;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-start: #10b981; /* Emerald */
-            --accent-end: #0ea5e9;   /* Sky Blue */
+            --bg-base: #f0f4f8;
+            --surface: #ffffff;
+            --surface-elevated: #e8edf4;
+            --border: #cbd5e1;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent-start: #059669; /* Emerald */
+            --accent-end: #0284c7;   /* Sky Blue */
             --accent-gradient: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-            --glow: rgba(16, 185, 129, 0.2);
+            --glow: rgba(5, 150, 105, 0.15);
             
             --font-sans: 'Outfit', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
@@ -37,9 +37,9 @@
             font-family: var(--font-sans);
             overflow: hidden;
             /* Subtle tech grid background */
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
@@ -99,11 +99,11 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
         }
-        
+
         .card::before {
             content: '';
             position: absolute;
@@ -140,12 +140,12 @@
         .graph-placeholder {
             border: 2px dashed var(--border);
             border-radius: 12px;
-            background: rgba(15, 23, 42, 0.5);
+            background: rgba(241, 245, 249, 0.8);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--border);
+            color: var(--text-muted);
             text-align: center;
             padding: 2rem;
             transition: all 0.3s ease;
@@ -214,112 +214,163 @@
         <div class="slide active">
             <div style="max-width: 900px;">
                 <p class="mono" style="color: var(--accent-start); margin-bottom: 1rem;">// SYSTEM_ONLINE</p>
-                <h1>Next-Gen <br><span class="gradient-text">Biosecurity Screening</span></h1>
+                <h1>Aegis for <br><span class="gradient-text">Biosecurity Screening</span></h1>
                 <p style="font-size: 1.5rem; color: var(--text-main); margin-top: 1rem;">
                     Detecting AI-generated malicious proteins and synthetic toxins beyond simple sequence homology.
+                </p>
+                <p class="mono" style="font-size: 0.95rem; color: var(--text-muted); margin-top: 2rem;">Team Cholix — Rick Lee, Zhiyee Liang</p>
+            </div>
+            <div style="position: absolute; bottom: 2.5rem; right: 3rem; display: flex; flex-direction: column; align-items: flex-end; gap: 1rem;">
+                <img src="imperial.png" alt="Imperial College London" style="width: 200px; height: auto; object-fit: contain;" />
+                <img src="aminoanalytica.png" alt="AminoAnalytica" style="width: 200px; height: auto; object-fit: contain;" />
+            </div>
+        </div>
+
+        <!-- Slide 2: The Gap -->
+        <div class="slide" style="overflow: hidden;">
+            <img src="protein.png" alt="Cholix protein interacting with NAD"
+                 style="position: absolute; top: 0; right: -3%; height: 100%; width: auto; max-width: 55%; object-fit: contain; object-position: top right;" />
+            <p class="mono" style="position: absolute; bottom: 5.5rem; right: 5%; color: var(--text-muted); font-size: 0.8rem; text-align: right;">Cholix protein interacting with its substrate NAD</p>
+            <div style="display: flex; flex-direction: column; justify-content: center; height: 100%; max-width: 50%; position: relative; z-index: 1;">
+                <p class="mono" style="color: var(--accent-start); margin-bottom: 0.75rem; font-size: 0.85rem;">// IDENTIFYING_THE_GAP</p>
+                <h2>Structural security at <span class="gradient-text">sequence speed.</span></h2>
+                <ul style="margin-top: 2rem;">
+                    <li>Current sequence-level screening is <span style="color: var(--text-main);">easily evaded</span></li>
+                    <li>Expensive structure prediction tools can't scale to high-throughput screening</li>
+                    <li>Aegis infers <span style="color: var(--text-main);">structural context from sequence</span> — bridging that gap</li>
+                    <li>Detects toxin-specific <span style="color: var(--accent-start);">interface fingerprints</span> without folding a structure</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3: The Ecosystem -->
+        <div class="slide">
+            <p class="mono" style="color: var(--accent-start); margin-bottom: 0.5rem; font-size: 0.85rem;">// SEQUENCE_ECOSYSTEM</p>
+            <h2 style="margin-bottom: 0.4em;"><span class="gradient-text">A world</span> within your sequence. </h2>
+            <p style="font-size: clamp(0.95rem, 1.5vw, 1.2rem); margin-bottom: 1.5rem;">A <strong style="color: var(--text-main);">reference fingerprint</strong> is extracted from a known toxin-substrate interface. Aegis then searches any query sequence for a match.</p>
+            <div style="display: flex; align-items: stretch; gap: 1.25rem; margin-top: 0.5rem;">
+
+                <!-- Card 1: Residue Embeddings -->
+                <div class="card" style="flex: 1;">
+                    <div style="margin-bottom: 1rem;">
+                        <svg viewBox="0 0 60 40" width="60" height="40">
+                            <defs>
+                                <filter id="gv3"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                            </defs>
+                            <circle cx="10" cy="20" r="5" fill="#cbd5e1" stroke="#475569" stroke-width="1"/>
+                            <circle cx="24" cy="20" r="5" fill="#cbd5e1" stroke="#475569" stroke-width="1"/>
+                            <circle cx="38" cy="20" r="5" fill="#059669" stroke="#059669" stroke-width="1" filter="url(#gv3)"/>
+                            <line x1="45" y1="20" x2="54" y2="20" stroke="#475569" stroke-width="1.5"/>
+                            <polygon points="54,17 60,20 54,23" fill="#475569"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Residue Embeddings</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Each residue gets a high-dimensional vector encoding its biochemical context. <br>e.g. a catalytic serine reads differently from any other serine.</p>
+                    <div class="mono" style="font-size: 0.75rem; color: var(--accent-end);">ESM2 · 1280-DIM VECTORS</div>
+                </div>
+
+                <!-- Connector: + -->
+                <div style="font-size: 2rem; font-weight: 300; color: var(--text-muted); flex-shrink: 0; display: flex; align-items: center;">+</div>
+
+                <!-- Card 2: Contact Maps -->
+                <div class="card" style="flex: 1;">
+                    <div style="margin-bottom: 1rem;">
+                        <svg viewBox="0 0 60 40" width="60" height="40">
+                            <rect x="5"  y="5"  width="10" height="10" fill="rgba(2,132,199,0.8)" rx="1"/>
+                            <rect x="18" y="5"  width="10" height="10" fill="rgba(2,132,199,0.2)" rx="1"/>
+                            <rect x="31" y="5"  width="10" height="10" fill="rgba(2,132,199,0.1)" rx="1"/>
+                            <rect x="5"  y="18" width="10" height="10" fill="rgba(2,132,199,0.2)" rx="1"/>
+                            <rect x="18" y="18" width="10" height="10" fill="rgba(2,132,199,0.8)" rx="1"/>
+                            <rect x="31" y="18" width="10" height="10" fill="rgba(5,150,105,0.7)" rx="1"/>
+                            <rect x="5"  y="31" width="10" height="10" fill="rgba(2,132,199,0.1)" rx="1"/>
+                            <rect x="18" y="31" width="10" height="10" fill="rgba(5,150,105,0.7)" rx="1"/>
+                            <rect x="31" y="31" width="10" height="10" fill="rgba(2,132,199,0.8)" rx="1"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Contact Maps</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Pairwise distance probabilities between all residue pairs capture spatial proximity without ever predicting a 3D structure.</p>
+                    <div class="mono" style="font-size: 0.75rem; color: var(--accent-end);">P(contact)<sub style="font-size:0.65rem;">ij</sub> · L×L MATRIX</div>
+                </div>
+
+                <!-- Connector: → -->
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.3rem; flex-shrink: 0;">
+                    <span style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono);">yields</span>
+                    <span style="font-size: 2rem; color: var(--accent-start);">→</span>
+                </div>
+
+                <!-- Card 3: Interface Fingerprint -->
+                <div class="card" style="flex: 1; border-color: rgba(5,150,105,0.45); box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 0 24px rgba(5,150,105,0.12);">
+                    <div style="margin-bottom: 1rem;">
+                        <svg viewBox="0 0 60 40" width="60" height="40">
+                            <defs>
+                                <filter id="gf3"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                            </defs>
+                            <circle cx="20" cy="20" r="6" fill="none" stroke="#059669" stroke-width="1.5" stroke-dasharray="3,2"/>
+                            <circle cx="20" cy="20" r="3" fill="#059669" opacity="0.9" filter="url(#gf3)"/>
+                            <circle cx="36" cy="14" r="3" fill="#059669" opacity="0.8" filter="url(#gf3)"/>
+                            <circle cx="38" cy="28" r="3" fill="#059669" opacity="0.8" filter="url(#gf3)"/>
+                            <line x1="23" y1="18" x2="34" y2="15" stroke="#059669" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+                            <line x1="23" y1="22" x2="36" y2="27" stroke="#059669" stroke-width="1" stroke-dasharray="2,2" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Interface Fingerprint</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Residues with the right embeddings within spatial proximity form a <span style="color: var(--accent-start);">unique fingerprint</span> for a specific toxin-substrate interface.</p>
+                    <div class="mono" style="font-size: 0.75rem; color: var(--accent-start);">e.g. Cholix · NAD⁺ interface</div>
+                </div>
+
+            </div>
+
+            <!-- Search step -->
+            <div style="display: flex; align-items: center; gap: 1.25rem; margin-top: 1.5rem; padding: 1rem 1.5rem; background: rgba(5,150,105,0.06); border: 1px solid rgba(5,150,105,0.2); border-radius: 12px;">
+                <span style="font-size: 1.5rem;">🔍</span>
+                <p style="margin: 0; font-size: clamp(0.9rem, 1.4vw, 1.1rem); color: var(--text-main);">
+                    Aegis scores any <span style="color: var(--accent-end); font-family: var(--font-mono);">query sequence</span> against the reference fingerprint, flagging matches <span style="color: var(--accent-end); font-weight: 600;">regardless of sequence identity</span> to the original toxin.
                 </p>
             </div>
         </div>
 
+        <!-- Slide 4: Case Study -->
         <div class="slide">
-            <h2>Two-Stage <span class="gradient-text">Detection Architecture</span></h2>
-            <p>A scalable, highly sensitive approach designed to catch stealthy synthetic homologs.</p>
-            <div class="grid-2" style="margin-top: 3rem; align-items: stretch;">
-                <div class="card">
-                    <h3 style="margin-bottom: 1rem;">Stage 1: Sequence Attention</h3>
-                    <p style="font-size: 1rem;">Fast, scalable deep-learning pass over raw nucleotide/amino acid sequences.</p>
-                    <div style="margin-top: auto; font-size: 0.8rem; color: var(--accent-end);" class="mono">SPEED: MILLIONS/HR</div>
-                </div>
-                <div class="card">
-                    <h3 style="margin-bottom: 1rem;">Stage 2: Structural Verification</h3>
-                    <p style="font-size: 1rem;">In-silico folding and structural homology assessment for flagged anomalies.</p>
-                    <div style="margin-top: auto; font-size: 0.8rem; color: var(--accent-start);" class="mono">ACCURACY: HIGH-FIDELITY</div>
-                </div>
-            </div>
-        </div>
+            <p class="mono" style="color: var(--accent-start); margin-bottom: 0.5rem; font-size: 0.85rem;">// CASE_STUDY</p>
+            <h2 style="margin-bottom: 0.2em;">Case Study: <span class="gradient-text">Cholix Toxin</span></h2>
+            <p style="font-size: clamp(0.85rem, 1.3vw, 1.05rem); margin-bottom: 1.2rem;">
+                120 synthetic homologues of Cholix toxin were screened with Commec and Aegis.
+                <strong style="color: var(--text-main);">16 sequences evaded Commec entirely — Aegis flagged every one.</strong>
+            </p>
 
-        <div class="slide">
-            <div class="grid-2">
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start;">
+
+                <!-- Histogram -->
                 <div>
-                    <h2>Stage 1: <br><span class="gradient-text">Attention Embeddings</span></h2>
-                    <p>Traditional screening relies on exact sequence matches (BLAST/k-mers), which AI-designed homologs easily evade.</p>
-                    <ul>
-                        <li><strong>Latent Inference:</strong> Transformer-based models read the sequence and generate high-dimensional embeddings.</li>
-                        <li><strong>Structural Context:</strong> Attention mechanisms infer structural motifs and catalytic relationships directly from 1D sequences.</li>
-                        <li><strong>Scalable Filtering:</strong> Acts as a highly sensitive dragnet to flag sequences that "look structurally suspicious" without the compute cost of full folding.</li>
-                    </ul>
+                    <img src="aegis_cholix_histogram_updated.png" alt="Aegis score histogram"
+                         style="width: 100%; border-radius: 10px; border: 1px solid var(--border);" />
+                    <p class="mono" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
+                        Blue sequences passed Commec — many still score high on Aegis
+                    </p>
                 </div>
-                <div class="card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <svg width="100%" height="200" viewBox="0 0 400 200">
-                        <path d="M50,100 Q150,20 350,100" fill="none" stroke="var(--accent-start)" stroke-width="2" stroke-dasharray="5,5" opacity="0.6"/>
-                        <path d="M50,100 Q200,180 350,100" fill="none" stroke="var(--accent-end)" stroke-width="2" opacity="0.8"/>
-                        <circle cx="50" cy="100" r="10" fill="var(--text-main)"/>
-                        <circle cx="150" cy="100" r="8" fill="var(--border)"/>
-                        <circle cx="250" cy="100" r="8" fill="var(--border)"/>
-                        <circle cx="350" cy="100" r="10" fill="var(--text-main)"/>
-                        <text x="50" y="140" fill="var(--text-muted)" class="mono" text-anchor="middle">Input Seq</text>
-                        <text x="350" y="140" fill="var(--text-muted)" class="mono" text-anchor="middle">Embedding</text>
-                    </svg>
+
+                <!-- Confusion matrix + stat boxes -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
+                    <img src="aegis_commec_confusion_matrix.png" alt="Confusion matrix"
+                         style="width: 280px; border-radius: 10px; border: 1px solid var(--border);" />
+                    <div style="background: rgba(5,150,105,0.07); border: 1px solid rgba(5,150,105,0.3); border-radius: 10px; padding: 1rem 1.4rem; text-align: center; width: 280px;">
+                        <div style="font-size: 2.4rem; font-weight: 700; background: linear-gradient(135deg, #059669, #0284c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">16</div>
+                        <p class="mono" style="font-size: 0.78rem; color: var(--text-muted); margin: 0;">sequences missed by Commec<br>caught by Aegis</p>
+                    </div>
+                    <div style="background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.3); border-radius: 10px; padding: 1rem 1.4rem; text-align: center; width: 280px;">
+                        <div style="font-size: 2.4rem; font-weight: 700; color: #ef4444;">0</div>
+                        <p class="mono" style="font-size: 0.78rem; color: var(--text-muted); margin: 0;">sequences missed by Aegis</p>
+                    </div>
                 </div>
+
             </div>
         </div>
 
-        <div class="slide">
-            <div class="grid-2">
-                <div class="card">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--accent-end);">Evaluation Metrics</h3>
-                    <ul>
-                        <li><strong>TM-Score:</strong> Measures topological similarity between the predicted variant and known wild-type threats.</li>
-                        <li><strong>ΔpLDDT:</strong> Compares confidence scores to determine if the generated sequence is realistic and stable.</li>
-                        <li><strong>Active Site Geometry:</strong> Verifies the spatial arrangement of catalytic residues (e.g., Ser-His-Asp triads).</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>Stage 2: <br><span class="gradient-text">Structural Verification</span></h2>
-                    <p>Once Stage 1 flags a potentially malicious embedding, the sequence is passed to predictive folding models (e.g., OpenFold).</p>
-                    <p>By comparing the predicted 3D coordinates against a database of known threat architectures, we establish the true functional risk of heavily mutated synthetic proteins.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <h2>Case Study: <span class="gradient-text">Cholix Toxin (ChxA)</span></h2>
-            <p>Testing the pipeline against a highly specific, monomeric threat.</p>
-            <div class="grid-2">
-                <ul>
-                    <li><strong>Architecture:</strong> Monomeric AB toxin produced by <em>Vibrio cholerae</em> (approx. 634 residues).</li>
-                    <li><strong>Mechanism:</strong> Domain III acts as a catalytic pocket, binding <strong>NAD+</strong> to perform toxic ADP-ribosylation of elongation factor 2 (eEF2).</li>
-                    <li><strong>Evasion Risk:</strong> Because its function relies on a defined structural pocket rather than a multimeric complex, it is a prime candidate for AI-driven sequence reformulation.</li>
-                </ul>
-                <div class="card" style="text-align: center;">
-                    <div class="mono" style="color: var(--accent-start); font-size: 1.2rem; margin-bottom: 1rem;">TARGET: eEF2</div>
-                    <div class="mono" style="color: var(--accent-end); font-size: 1.2rem;">LIGAND: NAD+</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="slide">
-            <h2>Results: <span class="gradient-text">Cholix Toxin Screening</span></h2>
-            <p>Evaluating evasion rates of reformulated ChxA against unpatched vs. structurally-aware screening.</p>
-            
-            <div class="graph-container">
-                <div class="graph-placeholder">
-                    <div class="graph-icon">📊</div>
-                    <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">[ INSERT GRAPH 1 HERE ]</h3>
-                    <p class="mono" style="font-size: 0.85rem;">e.g., Obscuration Rate / TM-Score Distribution</p>
-                </div>
-                
-                <div class="graph-placeholder">
-                    <div class="graph-icon">📈</div>
-                    <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">[ INSERT GRAPH 2 HERE ]</h3>
-                    <p class="mono" style="font-size: 0.85rem;">e.g., Revealment Rate / ΔpLDDT Correlation</p>
-                </div>
-            </div>
-        </div>
 
     </div>
 
-    <div class="controls">
+
+    <div class="controls" style="visibility: hidden;">
         <button class="btn-nav" id="prevBtn">←</button>
         <button class="btn-nav" id="nextBtn">→</button>
     </div>
