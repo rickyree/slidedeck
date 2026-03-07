@@ -330,13 +330,100 @@
             </div>
         </div>
 
-        <!-- Slide 4: Case Study -->
+        <!-- Slide 4: Commec Benchmarking -->
+        <div class="slide" style="overflow-y: auto;">
+            <!-- Header -->
+            <div style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.3rem;">
+                <p class="mono" style="color: var(--accent-start); font-size: 0.85rem;">// CASE_STUDY</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+                <h2 style="margin: 0; font-size: clamp(1.4rem, 2.5vw, 2.2rem);">Case Study: <span class="gradient-text">Cholix Toxin</span></h2>
+            </div>
+
+            <!-- Methods -->
+            <div style="background: rgba(2,132,199,0.06); border-left: 3px solid var(--accent-end); border-radius: 0 8px 8px 0; padding: 0.75rem 1rem; margin-bottom: 1.2rem;">
+                <div class="mono" style="font-size: 0.7rem; color: var(--accent-end); margin-bottom: 0.5rem;">METHODS</div>
+                <ul style="font-size: 0.65rem; color: var(--text-muted); line-height: 1.6; padding-left: 1.2rem;">
+                    <li>Benchmarking Aegis against <strong style="color: var(--text-main);">Commec</strong> (IBBIS), a sequence-based biosecurity screening tool</li>
+                    <li><strong style="color: var(--text-main);">Cholix</strong> toxin sequences redesigned using <strong style="color: var(--text-main);">ProteinMPNN</strong> at two sampling temperatures: <strong style="color: var(--text-main);">T=0.3</strong> and <strong style="color: var(--text-main);">T=1.5</strong></li>
+                    <li><strong style="color: var(--text-main);">Expected benign</strong> — mutations at conserved catalytic residues; expected <strong style="color: var(--text-main);"></strong></li>
+                    <li><strong style="color: var(--text-main);">Expected toxic</strong> — mutations outside the binding site; expected <strong style="color: var(--text-main);"></strong></li>
+                    <li>30 sequences per class per temperature (120 total) put through <strong style="color: var(--text-main);">DNA obfuscation</strong> to diverge from wild-type</li>
+                    <li>Screened with <strong style="color: var(--text-main);">COMMEC v1.0.0</strong> biorisk step only — sequences matching known virulence factors flagged as <strong style="color: var(--text-main);">Warning</strong></li>
+                </ul>
+            </div>
+
+            <!-- Tables side by side -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+
+                <!-- T=0.3 -->
+                <div>
+                    <div class="mono" style="font-size: 0.72rem; color: #c05a20; margin-bottom: 0.5rem;">T = 0.3 — All sequences flagged</div>
+                    <table style="width: 100%; border-collapse: separate; border-spacing: 0 3px; font-family: var(--font-sans);">
+                        <thead>
+                            <tr>
+                                <th style="font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); padding: 6px 10px; text-align: left;">Group</th>
+                                <th style="font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); padding: 6px 10px; text-align: center;">n</th>
+                                <th style="font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); padding: 6px 10px; text-align: center;">Biorisk</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: var(--surface-elevated);">
+                                <td style="padding: 8px 10px; font-size: clamp(0.8rem, 1.2vw, 0.92rem); color: var(--text-main); border-radius: 6px 0 0 6px; font-family: var(--font-mono);">Benign</td>
+                                <td style="padding: 8px 10px; font-size: clamp(0.8rem, 1.2vw, 0.92rem); text-align: center; color: var(--text-muted);">30</td>
+                                <td style="padding: 8px 10px; text-align: center; border-radius: 0 6px 6px 0;"><span style="background: rgba(192,98,40,0.1); color: #b05010; border: 1px solid rgba(192,98,40,0.3); border-radius: 10px; padding: 2px 10px; font-size: 0.75rem; font-weight: 700;">Warning</span></td>
+                            </tr>
+                            <tr style="background: var(--surface-elevated);">
+                                <td style="padding: 8px 10px; font-size: clamp(0.8rem, 1.2vw, 0.92rem); color: var(--text-main); border-radius: 6px 0 0 6px; font-family: var(--font-mono);">Toxic</td>
+                                <td style="padding: 8px 10px; font-size: clamp(0.8rem, 1.2vw, 0.92rem); text-align: center; color: var(--text-muted);">30</td>
+                                <td style="padding: 8px 10px; text-align: center; border-radius: 0 6px 6px 0;"><span style="background: rgba(192,98,40,0.1); color: #b05010; border: 1px solid rgba(192,98,40,0.3); border-radius: 10px; padding: 2px 10px; font-size: 0.75rem; font-weight: 700;">Warning</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- T=1.5 -->
+                <div>
+                    <div class="mono" style="font-size: 0.72rem; color: var(--accent-start); margin-bottom: 0.5rem;">T = 1.5 — Toxic sequences slipped through</div>
+                    <table style="width: 100%; border-collapse: separate; border-spacing: 0 3px; font-family: var(--font-sans);">
+                        <thead>
+                            <tr>
+                                <th style="font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); padding: 6px 10px; text-align: left;">Group</th>
+                                <th style="font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); padding: 6px 10px; text-align: center;">n</th>
+                                <th style="font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); padding: 6px 10px; text-align: center;">Biorisk</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: var(--surface-elevated);">
+                                <td style="padding: 8px 10px; font-size: clamp(0.8rem, 1.2vw, 0.92rem); color: var(--text-main); border-radius: 6px 0 0 6px; font-family: var(--font-mono);">Benign</td>
+                                <td style="padding: 8px 10px; font-size: clamp(0.8rem, 1.2vw, 0.92rem); text-align: center; color: var(--text-muted);">30</td>
+                                <td style="padding: 8px 10px; text-align: center; border-radius: 0 6px 6px 0;"><span style="background: rgba(5,150,105,0.1); color: #059669; border: 1px solid rgba(5,150,105,0.3); border-radius: 10px; padding: 2px 10px; font-size: 0.75rem; font-weight: 700;">Pass</span></td>
+                            </tr>
+                            <tr style="background: var(--surface-elevated);">
+                                <td style="padding: 8px 10px; font-size: clamp(0.8rem, 1.2vw, 0.92rem); color: var(--text-main); border-radius: 6px 0 0 6px; font-family: var(--font-mono);">Toxic</td>
+                                <td style="padding: 8px 10px; font-size: clamp(0.8rem, 1.2vw, 0.92rem); text-align: center; color: var(--text-muted);">15</td>
+                                <td style="padding: 8px 10px; text-align: center; border-radius: 0 6px 6px 0;"><span style="background: rgba(192,98,40,0.1); color: #b05010; border: 1px solid rgba(192,98,40,0.3); border-radius: 10px; padding: 2px 10px; font-size: 0.75rem; font-weight: 700;">Warning</span></td>
+                            </tr>
+                            <tr style="background: rgba(239,68,68,0.06); outline: 1.5px solid rgba(239,68,68,0.4); outline-offset: -1px; border-radius: 6px;">
+                                <td style="padding: 8px 10px; font-size: clamp(0.8rem, 1.2vw, 0.92rem); font-weight: 700; color: #dc2626; border-radius: 6px 0 0 6px; font-family: var(--font-mono);">Toxic</td>
+                                <td style="padding: 8px 10px; font-size: clamp(0.8rem, 1.2vw, 0.92rem); text-align: center; font-weight: 700; color: #dc2626;">15</td>
+                                <td style="padding: 8px 10px; text-align: center; border-radius: 0 6px 6px 0;"><span style="background: rgba(5,150,105,0.1); color: #059669; border: 1px solid rgba(5,150,105,0.3); border-radius: 10px; padding: 2px 10px; font-size: 0.75rem; font-weight: 700;">Pass ← missed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Slide 5: Case Study Results -->
         <div class="slide">
             <p class="mono" style="color: var(--accent-start); margin-bottom: 0.5rem; font-size: 0.85rem;">// CASE_STUDY</p>
             <h2 style="margin-bottom: 0.2em;">Case Study: <span class="gradient-text">Cholix Toxin</span></h2>
             <p style="font-size: clamp(0.85rem, 1.3vw, 1.05rem); margin-bottom: 1.2rem;">
                 120 synthetic homologues of Cholix toxin were screened with Commec and Aegis.
-                <strong style="color: var(--text-main);">16 sequences evaded Commec entirely — Aegis flagged every one.</strong>
+                <strong style="color: var(--text-main);">15 toxic sequences evaded Commec entirely — Aegis flagged every one.</strong>
             </p>
 
             <div style="display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start;">
@@ -356,11 +443,77 @@
                          style="width: 280px; border-radius: 10px; border: 1px solid var(--border);" />
                     <div style="background: rgba(5,150,105,0.07); border: 1px solid rgba(5,150,105,0.3); border-radius: 10px; padding: 1rem 1.4rem; text-align: center; width: 280px;">
                         <div style="font-size: 2.4rem; font-weight: 700; background: linear-gradient(135deg, #059669, #0284c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">16</div>
-                        <p class="mono" style="font-size: 0.78rem; color: var(--text-muted); margin: 0;">sequences missed by Commec<br>caught by Aegis</p>
+                        <p class="mono" style="font-size: 0.78rem; color: var(--text-muted); margin: 0;">toxic sequences missed by Commec<br>caught by Aegis</p>
                     </div>
                     <div style="background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.3); border-radius: 10px; padding: 1rem 1.4rem; text-align: center; width: 280px;">
                         <div style="font-size: 2.4rem; font-weight: 700; color: #ef4444;">0</div>
-                        <p class="mono" style="font-size: 0.78rem; color: var(--text-muted); margin: 0;">sequences missed by Aegis</p>
+                        <p class="mono" style="font-size: 0.78rem; color: var(--text-muted); margin: 0;">toxic sequences missed by Aegis</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Slide 6: USalign Structural Homology -->
+        <div class="slide" style="overflow: hidden;">
+            <p class="mono" style="color: var(--accent-start); margin-bottom: 0.4rem; font-size: 0.85rem;">// STRUCTURAL_VERIFICATION</p>
+            <h2 style="margin-bottom: 0.15em;">Structural Homology: <span class="gradient-text">TM-score of targeted Cholix domains</span></h2>
+            <p class="mono" style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 1rem;">3 domains: catalytic · translocation · receptor-binding</p>
+
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start;">
+
+                <!-- Table -->
+                <div>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 1.5px solid var(--border);">
+                                <th style="color: var(--text-muted); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 12px; text-align: left;">Sequence</th>
+                                <th style="color: var(--text-muted); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 12px; text-align: right;">Max TM-score₂</th>
+                                <th style="color: var(--text-muted); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 12px; text-align: left;">Best Target</th>
+                                <th style="color: var(--text-muted); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 12px; text-align: left;">Detection</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 17</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.859</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 16</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.780</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 4</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.762</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 30</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.761</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 19</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.749</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 20</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.746</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 29</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.734</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 24</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.726</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 21</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.724</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 6</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.720</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 9</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.720</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 26</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b91c1c; font-weight: 700;">0.707</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(220,38,38,0.1); color: #b91c1c; border: 1px solid rgba(220,38,38,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">FLAGGED</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 13</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b45309; font-weight: 600;">0.699</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(217,119,6,0.1); color: #b45309; border: 1px solid rgba(217,119,6,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">BORDERLINE</span></td></tr>
+                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 25</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b45309; font-weight: 600;">0.669</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(217,119,6,0.1); color: #b45309; border: 1px solid rgba(217,119,6,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">BORDERLINE</span></td></tr>
+                            <tr><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Toxic sequence 5</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; text-align: right; color: #b45309; font-weight: 600;">0.652</td><td style="padding: 5px 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">catalytic domain</td><td style="padding: 5px 12px;"><span style="background: rgba(217,119,6,0.1); color: #b45309; border: 1px solid rgba(217,119,6,0.3); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700;">BORDERLINE</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Legend + note -->
+                <div style="display: flex; flex-direction: column; gap: 0.75rem; min-width: 220px; max-width: 220px;">
+                    <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--text-muted);">
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #b91c1c; flex-shrink: 0;"></div>
+                        TM-score₂ ≥ 0.7 — same fold (flagged)
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--text-muted);">
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #b45309; flex-shrink: 0;"></div>
+                        TM-score₂ 0.5–0.7 — borderline
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--text-muted);">
+                        <div style="width: 10px; height: 10px; border-radius: 50%; background: #94a3b8; flex-shrink: 0;"></div>
+                        TM-score₂ &lt; 0.5 — dissimilar
+                    </div>
+                    <p class="mono" style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.5rem;">TM-score₂: normalised by target domain length</p>
+
+                    <div style="padding-top: 1rem;">
+                        <div style="background: rgba(5,150,105,0.07); border: 1px solid rgba(5,150,105,0.25); border-radius: 10px; padding: 0.9rem 1rem;">
+                            <div class="mono" style="font-size: 0.68rem; color: var(--accent-start); margin-bottom: 0.4rem;">CONCLUSION</div>
+                            <p style="font-size: 0.78rem; color: var(--text-main); margin: 0; line-height: 1.7;">The 15 sequences flagged by Aegis share a similar fold with the <span style="color: var(--accent-start); font-weight: 600;">catalytic domain</span> of Cholix toxin, and are therefore likely to be <span style="color: var(--accent-start); font-weight: 600;">toxic</span>.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -369,6 +522,38 @@
 
 
     </div>
+
+
+        <!-- Slide 7: Conclusions -->
+        <div class="slide">
+            <p class="mono" style="color: var(--accent-start); margin-bottom: 0.5rem; font-size: 0.85rem;">// CONCLUSIONS</p>
+            <h2 style="margin-bottom: 1.2em;">Conclusions</h2>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 820px;">
+
+                <div style="display: flex; align-items: flex-start; gap: 1.1rem; background: rgba(185,28,28,0.06); border: 1px solid rgba(185,28,28,0.18); border-radius: 12px; padding: 1.1rem 1.3rem;">
+                    <div style="flex-shrink:0; width:36px; height:36px; border-radius:8px; background:rgba(185,28,28,0.12); color:#b91c1c; display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:800; margin-top:1px;">!</div>
+                    <div style="font-size: clamp(0.88rem, 1.4vw, 1rem); color: var(--text-main); line-height: 1.65;">
+                        <strong>Sequence-based screening alone can be evaded with sequence obfuscation</strong>
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: flex-start; gap: 1.1rem; background: rgba(5,150,105,0.06); border: 1px solid rgba(5,150,105,0.18); border-radius: 12px; padding: 1.1rem 1.3rem;">
+                    <div style="flex-shrink:0; width:36px; height:36px; border-radius:8px; background:rgba(5,150,105,0.12); color:var(--accent-start); display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:800; margin-top:1px;">&#10003;</div>
+                    <div style="font-size: clamp(0.88rem, 1.4vw, 1rem); color: var(--text-main); line-height: 1.65;">
+                        <strong>Structure-based screening catches what sequence screening misses</strong>
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: flex-start; gap: 1.1rem; background: rgba(2,132,199,0.06); border: 1px solid rgba(2,132,199,0.18); border-radius: 12px; padding: 1.1rem 1.3rem;">
+                    <div style="flex-shrink:0; width:36px; height:36px; border-radius:8px; background:rgba(2,132,199,0.12); color:var(--accent-end); display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:800; margin-top:1px;">+</div>
+                    <div style="font-size: clamp(0.88rem, 1.4vw, 1rem); color: var(--text-main); line-height: 1.65;">
+                        <strong>Combined interface signature detection + structural homology by Aegis detected Cholix toxic sequences successfully</strong>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
 
     <div class="controls">
