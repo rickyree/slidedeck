@@ -176,21 +176,22 @@
         .btn-nav {
             background: var(--surface-elevated);
             border: 1px solid var(--border);
-            color: var(--text-main);
-            width: 50px; height: 50px;
+            color: var(--text-muted);
+            width: 22px; height: 22px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 0.55rem;
             transition: all 0.2s ease;
+            opacity: 0.5;
         }
 
         .btn-nav:hover {
             background: var(--border);
             color: var(--accent-end);
-            transform: scale(1.1);
+            opacity: 1;
         }
 
         /* Progress Bar */
@@ -370,7 +371,7 @@
     </div>
 
 
-    <div class="controls" style="visibility: hidden;">
+    <div class="controls">
         <button class="btn-nav" id="prevBtn">←</button>
         <button class="btn-nav" id="nextBtn">→</button>
     </div>
